@@ -46,7 +46,7 @@ const Home = () => {
 
   return (
     <Layout>
-      <div className="max-w-5xl px-10 mx-auto min-h-[calc(100vh-64px)] overflow-auto flex items-center justify-center">
+      <div className="px-10 mx-auto min-h-[calc(100vh-64px)] overflow-auto flex items-center justify-center">
         <div className="w-full flex flex-col justify-center">
           <div className="overflow-x-auto shadow-md sm:rounded-lg">
             <div className="flex justify-end mb-10 gap-2">
