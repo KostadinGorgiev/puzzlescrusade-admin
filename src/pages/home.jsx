@@ -46,7 +46,7 @@ const Home = () => {
 
   return (
     <Layout>
-      <div className="px-10 mx-auto min-h-[calc(100vh-64px)] overflow-auto flex items-center justify-center">
+      <div className="p-10 mx-auto min-h-[calc(100vh-64px)] overflow-auto flex items-center justify-center">
         <div className="w-full flex flex-col justify-center">
           <div className="overflow-x-auto shadow-md sm:rounded-lg">
             <div className="flex justify-end mb-10 gap-2">
@@ -128,6 +128,12 @@ const Home = () => {
                         scope="col"
                         className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
                       >
+                        Password(optional)
+                      </th>
+                      <th
+                        scope="col"
+                        className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
+                      >
                         User Count
                       </th>
                       <th scope="col" className="p-4">
@@ -179,9 +185,14 @@ const Home = () => {
                           {task.bonus_amount}
                         </td>
                         <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                          {userTasks.filter(
-                            (uTask) => uTask.task_id == task.id
-                          ).length}
+                          {task.password || ""}
+                        </td>
+                        <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                          {
+                            userTasks.filter(
+                              (uTask) => uTask.task_id == task.id
+                            ).length
+                          }
                         </td>
                         <td className="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
                           <a

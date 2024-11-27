@@ -19,6 +19,7 @@ const AddTaskModal = ({ visible, onClose }) => {
       link: "",
       type: "telegram",
       bonus_amount: "",
+      password: "",
     },
     onSubmit: async (data) => {
       console.log(data);
@@ -36,6 +37,7 @@ const AddTaskModal = ({ visible, onClose }) => {
         link: "",
         type: "telegram",
         bonus_amount: "",
+        password: "",
       });
     }
   }, [visible]);
@@ -184,6 +186,35 @@ const AddTaskModal = ({ visible, onClose }) => {
                                 formik.touched.bonus_amount && (
                                   <p className="text-red-500">
                                     {formik.errors.bonus_amount}
+                                  </p>
+                                )}
+                            </div>
+                          </div>
+                        </div>
+                        <div className="mt-6">
+                          <div className="">
+                            <label
+                              htmlFor="password"
+                              className="block text-sm/6 font-medium text-gray-900"
+                            >
+                              Password(optional)
+                            </label>
+                            <div className="mt-2">
+                              <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                                <input
+                                  type="text"
+                                  name="password"
+                                  id="password"
+                                  autoComplete="password"
+                                  className="block flex-1 border-0 bg-transparent py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm/6 outline-none px-2"
+                                  placeholder="Enter password here"
+                                  {...formik.getFieldProps("password")}
+                                />
+                              </div>
+                              {formik.errors.password &&
+                                formik.touched.password && (
+                                  <p className="text-red-500">
+                                    {formik.errors.password}
                                   </p>
                                 )}
                             </div>
