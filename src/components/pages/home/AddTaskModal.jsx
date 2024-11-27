@@ -9,6 +9,8 @@ const validationSchema = Yup.object({
   link: Yup.string().url("Valid url is required").required("Link is required"),
   type: Yup.string().required("Type is required"),
   bonus_amount: Yup.string().required("Bonus_amount is required"),
+  password: Yup.string(),
+  question: Yup.string(),
 });
 
 const AddTaskModal = ({ visible, onClose }) => {
@@ -20,6 +22,7 @@ const AddTaskModal = ({ visible, onClose }) => {
       type: "telegram",
       bonus_amount: "",
       password: "",
+      question: "",
     },
     onSubmit: async (data) => {
       console.log(data);
@@ -38,6 +41,7 @@ const AddTaskModal = ({ visible, onClose }) => {
         type: "telegram",
         bonus_amount: "",
         password: "",
+        question: "",
       });
     }
   }, [visible]);
@@ -153,6 +157,7 @@ const AddTaskModal = ({ visible, onClose }) => {
                               >
                                 <option value="telegram">Telegram</option>
                                 <option value="twitter">Twitter</option>
+                                <option value="youtube">Youtube</option>
                               </select>
                             </div>
                             {formik.errors.type && formik.touched.type && (
@@ -215,6 +220,35 @@ const AddTaskModal = ({ visible, onClose }) => {
                                 formik.touched.password && (
                                   <p className="text-red-500">
                                     {formik.errors.password}
+                                  </p>
+                                )}
+                            </div>
+                          </div>
+                        </div>
+                        <div className="mt-6">
+                          <div className="">
+                            <label
+                              htmlFor="question"
+                              className="block text-sm/6 font-medium text-gray-900"
+                            >
+                              Question(optional)
+                            </label>
+                            <div className="mt-2">
+                              <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                                <input
+                                  type="text"
+                                  name="question"
+                                  id="question"
+                                  autoComplete="question"
+                                  className="block flex-1 border-0 bg-transparent py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm/6 outline-none px-2"
+                                  placeholder="Enter question here"
+                                  {...formik.getFieldProps("question")}
+                                />
+                              </div>
+                              {formik.errors.question &&
+                                formik.touched.question && (
+                                  <p className="text-red-500">
+                                    {formik.errors.question}
                                   </p>
                                 )}
                             </div>
