@@ -36,6 +36,17 @@ const Home = () => {
     }
   };
 
+  const handleCloseActiveUsers = async () => {
+    if (
+      window.confirm("Are you sure want to close all users active on game?")
+    ) {
+      let response = await axiosInterface.get(
+        "secret-url-reload-users-V4d1N6s5W8"
+      );
+      alert("success!");
+    }
+  };
+
   useEffect(() => {
     fetchTasks();
   }, []);
@@ -64,6 +75,13 @@ const Home = () => {
                 className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
               >
                 Add Task
+              </button>
+              <button
+                type="button"
+                onClick={() => handleCloseActiveUsers()}
+                className="rounded-md bg-red-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
+              >
+                Ternimate All Users
               </button>
             </div>
             <div className="inline-block min-w-full align-middle">
